@@ -1,0 +1,28 @@
+create a bookstore database
+
+CREATE TABLE "bookstore" (id integer primary key, book text, price integer, genre text, quantity integer);
+
+INSERT INTO "bookstore" VALUES (1, 'fifth season', 15, 'fantasy', 23);
+INSERT INTO "bookstore" VALUES (2, 'twilight', 9, 'fantasy', 17);
+INSERT INTO "bookstore" VALUES (3, 'the notebook', 12, 'romance', 30);
+INSERT INTO "bookstore" VALUES (4, 'flowers for algernon', 8, 'fiction', 1);
+INSERT INTO "bookstore" VALUES (5, 'if you give a mouse a cookie', 5, 'childrens', 11);
+INSERT INTO "bookstore" VALUES (6, 'tears of a tiger', 11, 'teen', 4);
+INSERT INTO "bookstore" VALUES (7, 'you have reached sam', 10, 'teen', 8);
+INSERT INTO "bookstore" VALUES (8, 'the housemaid', 12, 'thriller', 6);
+INSERT INTO "bookstore" VALUES (9, 'winnie the pooh', 4, 'childrens', 6);
+INSERT INTO "bookstore" VALUES (10, 'nightfall', 5, 'fantasy', 7);
+INSERT INTO "bookstore" VALUES (11, 'orange bird', 6, 'childrens', 12);
+INSERT INTO "bookstore" VALUES (12, 'irobot', 14, 'scifi', 12);
+INSERT INTO "bookstore" VALUES (13, 'the sun', 6, 'poetry', 3);
+INSERT INTO "bookstore" VALUES (14, 'what lies in the woods', 9, 'thriller', 10);
+INSERT INTO "bookstore" VALUES (15, 'her flowers', 5, 'poetry', 11);
+
+
+--sort items in bookstore by price--
+
+SELECT * FROM bookstore
+ORDER BY price desc;
+
+--find average price of books sold from bookstore--
+SELECT AVG(price) FROM "bookstore"
