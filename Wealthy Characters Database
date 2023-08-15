@@ -1,0 +1,70 @@
+/* Create table about the people and what they do here */
+
+
+CREATE TABLE rich_characters (id INTEGER PRIMARY KEY,
+name text, 
+age integer, 
+species text,
+career text,
+net_worth integer,
+media text);
+
+INSERT INTO rich_characters VALUES (1, "king tchalla", 30, "human", "royalty", 90000000000000, "mcu");
+
+INSERT INTO rich_characters VALUES (2, "scrooge mcduck", 75, "duck", "oil tycoon", 65400000000, "disney");
+
+INSERT INTO rich_characters VALUES (3, "smaug dragon", 99, "dragon", "theif", 54100000000, "lord of the rings");
+
+INSERT INTO rich_characters VALUES (4, "flintheart glomgold", 40, "duck", "gold mining", 52000000000, "disney");
+
+INSERT INTO rich_characters VALUES (5, "santa clause", 1741, "fairy", "toy maker", 51000000000, "folklore");
+
+INSERT INTO rich_characters VALUES (6, "carlisle cullen", 365, "vampire", "doctor", 46000000000, "twilight");
+
+INSERT INTO rich_characters VALUES (7, "oliver warbucks", 52, "human", "industrialist", 36200000000, "annie"); 
+
+INSERT INTO rich_characters VALUES (8, "ming the merciless", 50, "alien", "emperor", 21000000000, "flash gordon");
+
+
+INSERT INTO rich_characters VALUES (9, "lady mary cosgrove", 30, "human", "heiress", 1100000, "downton abbey");
+
+INSERT INTO rich_characters VALUES (10, "mom", 142, "human", "ceo", 15700000000, "futurama");
+
+
+CREATE TABLE characteristics (ID INTEGER PRIMARY KEY,
+
+name text,
+
+gender text,
+
+morality text,
+
+mortality text);
+
+INSERT INTO characteristics VALUES (1, "king tchalla", "male", "good", "mortal");
+
+INSERT INTO characteristics VALUES (2, "scrooge mcduck", "male", "neautral", "mortal");
+
+INSERT INTO characteristics VALUES (3, "smaug dragon", "male", "evil", "immortal");
+
+INSERT INTO characteristics VALUES (4, "flintheart glomgold", "male", "neutral", "mortal");
+
+INSERT INTO characteristics VALUES (5, "santa clause", "male", "good", "immortal");
+
+INSERT INTO characteristics VALUES (6, "carlisle cullen", "male", "good", "immortal");
+
+INSERT INTO characteristics VALUES (7, "oliver warbucks", "male", "neutral", "mortal");
+
+INSERT INTO characteristics VALUES (8, "ming the merciless", "male", "neutral", "mortal");
+
+INSERT INTO characteristics VALUES (9, "lady mary cosgrove", "female", "neutral", "mortal");
+
+INSERT INTO characteristics VALUES (10, "mom", "female", "evil", "mortal");
+
+
+
+// Use JOINS to categorize characters by name, net worth, and gender //
+
+SELECT rich_characters.name, rich_characters.net_worth, characteristics.gender FROM rich_characters JOIN characteristics ON rich_characters.name = characteristics.name; 
+
+
