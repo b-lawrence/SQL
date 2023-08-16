@@ -63,8 +63,11 @@ INSERT INTO characteristics VALUES (10, "mom", "female", "evil", "mortal");
 
 
 
-// Use JOINS to categorize characters by name, net worth, and gender //
 
 SELECT rich_characters.name, rich_characters.net_worth, characteristics.gender FROM rich_characters JOIN characteristics ON rich_characters.name = characteristics.name; 
 
 
+
+SELECT rc.name, ch.morality, rc.net_worth FROM rich_characters rc LEFT JOIN characteristics ch ON rc.name = ch.name ORDER BY rc.name; 
+
+SELECT COUNT (*) FROM characteristics WHERE morality = 'evil'; 
