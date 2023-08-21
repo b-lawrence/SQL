@@ -1,9 +1,15 @@
+// In this SQL, I am querying a database with multiple tables in it to quantify data regarding customers and orders.
+
 SELECT * FROM BIT_DB.customers LIMIT 20;
+
+// How many orders were placed in January?//
 
 SELECT COUNT(orderid)
 FROM BIT_DB.JanSales
 WHERE length(orderid) = 6 
 AND orderid <> 'Order ID';
+
+// How many orders in January were for an iPhone?//
 
 SELECT COUNT(orderid)
 FROM BIT_DB.JanSales
@@ -11,6 +17,7 @@ WHERE Product='iPhone'
 AND length(orderid) = 6 
 AND orderid <> 'Order ID';
 
+// 
 SELECT distinct acctnum
 FROM BIT_DB.customers cust
 
