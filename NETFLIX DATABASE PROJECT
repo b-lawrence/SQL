@@ -1,0 +1,39 @@
+This project utilized data from the Netflix database stored at http://sqlfiddle.com/#!17/7dae0/ 
+
+
+/ HOW MANY TITLES IN THE DATABASE ARE MOVIES //
+
+SELECT COUNT (*) 
+FROM netflix_titles_info
+WHERE type= 'Movie';
+
+
+// WHICH TITLE WAS MOST RECENTLY ADDED //
+
+SELECT *
+FROM netflix_titles_info ORDER BY date_added DESC LIMIT 1;
+
+//LIST TITLES IN ALPHABETICAL ORDER //
+
+SELECT *
+FROM netflix_titles_info ORDER BY title ASC;
+
+
+// SELECT DIRECTOR OF THE STARLING //
+
+SELECT np.director
+FROM netflix_people np
+LEFT JOIN netflix_titles_info nt
+ON np.show_id = nt.show_id 
+WHERE nt.title = 'The Starling';
+
+
+// WHAT IS THE OLDEST MOVIE IN THE DATABASE // 
+
+SELECT title, release_year
+FROM "netflix_titles_info"
+WHERE type='Movie'
+ORDER BY release_year asc
+LIMIT 1;
+
+
