@@ -80,3 +80,13 @@ SELECT company_name, industry
 FROM fortune_companies
 WHERE healthcare_benefits=1 AND paid_time_off_days>=20;
 
+
+// Count and aggregate companies by benefit status// 
+
+SELECT COUNT(*) , 
+CASE WHEN healthcare_benefits = "1" THEN "Benefited"
+WHEN healthcare_benefits = "0" THEN "None" 
+END AS "benefit_status"
+FROM fortune_companies 
+GROUP BY benefit_status;
+
