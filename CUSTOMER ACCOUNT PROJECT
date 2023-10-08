@@ -65,3 +65,13 @@ SELECT distinct Product, SUM(Quantity)
 FROM BIT_DB.FebSales 
 WHERE location LIKE "%Los Angeles%"
 GROUP BY Product;
+
+
+
+SELECT location, Quantity
+FROM BIT_DB.JanSales 
+GROUP BY location 
+HAVING Quantity >= 3
+AND location LIKE '%Atlanta%'
+
+
