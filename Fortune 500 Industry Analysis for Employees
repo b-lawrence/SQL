@@ -90,3 +90,13 @@ END AS "benefit_status"
 FROM fortune_companies 
 GROUP BY benefit_status;
 
+// SELECT COMPANIES AND INDUSTRIES OUTSIDE OF THE TECHNOLOGY INDUSTRY //
+
+SELECT company_name, industry
+FROM fortune_companies 
+WHERE industry NOT IN ("Technology")
+
+SELECT company_name, industry
+FROM fortune_companies 
+WHERE industry <> "Technology"
+
