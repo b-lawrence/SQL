@@ -1,0 +1,115 @@
+For this project, I downloaded IMDB data from Kaggle to perfom analytics on the data using SQL.
+
+
+
+#1. Find the Top 10 Rated Films
+
+SELECT Movie_id, Title, Rating
+FROM IMDB 
+ORDER BY Rating DESC 
+LIMIT 10; 
+
+#2. Domestic box office success by films using JOIN
+
+SELECT i.Movie_id, i.Title, i.Rating, e.Domestic
+FROM IMDB i LEFT JOIN earning e
+ON i.Movie_id = e.Movie_id
+GROUP BY i.Title
+ORDER BY e.Domestic DESC; 
+
+#3. Top 10 box office success by genre
+
+SELECT SUM(e.Domestic) Total_Domestic, g.genre 
+FROM earning e
+JOIN genre g
+ON e.Movie_id = g.Movie_id 
+GROUP BY g.genre
+HAVING g.genre <> ''
+ORDER BY Total_Domestic DESC LIMIT 10; 
+
+#4. Lowest grossing film domestic
+
+SELECT SUM(e.Domestic) Total_Domestic, g.genre 
+FROM earning e
+JOIN genre g
+ON e.Movie_id = g.Movie_id 
+GROUP BY g.genre
+HAVING g.genre <> ''
+ORDER BY Total_Domestic ASC LIMIT 1;
+
+#5. Top 10 Box office success worldwide by genre
+
+SELECT SUM(e.Worldwide) Total_Worldwide, g.genre 
+FROM earning e
+JOIN genre g
+ON e.Movie_id = g.Movie_id 
+GROUP BY g.genre
+HAVING g.genre <> ''
+ORDER BY Total_Worldwide DESC LIMIT 10; 
+
+#6. Lowest performing genre worldwide
+
+SELECT SUM(e.Worldwide) Total_Worldwide, g.genre 
+FROM earning e
+JOIN genre g
+ON e.Movie_id = g.Movie_id 
+GROUP BY g.genre
+HAVING g.genre <> ''
+ORDER BY Total_Worldwide ASC LIMIT 1; 
+
+#7. Which movie is the lowest rated?
+
+SELECT Movie_id, Title, Rating
+FROM IMDB 
+ORDER BY Rating ASC 
+LIMIT 1; 
+
+#8. Which movie is the highest rated?
+
+SELECT Movie_id, Title, Rating
+FROM IMDB 
+ORDER BY Rating DESC 
+LIMIT 1; 
+
+#9. Clean data regarding runtime 
+
+SELECT Title, Runtime 
+FROM IMDB
+WHERE Runtime <> ''
+GROUP BY Title;
+
+#10. Film with the lowest budget 
+
+SELECT Title, Budget
+FROM IMDB
+GROUP BY Title
+HAVING Budget <> ''
+ORDER BY Budget ASC LIMIT 1;
+
+#11. Film with the highest budget
+
+SELECT Title, Budget
+FROM IMDB
+GROUP BY Title
+HAVING Budget <> ''
+ORDER BY Budget DESC LIMIT 1;
+
+#12. Genre with the lowest budget overall
+
+SELECT g.genre, i.budget
+FROM genre g
+INNER JOIN IMDB i
+ON g.Movie_id = i.Movie_id
+GROUP BY genre
+HAVING genre <> ''
+ORDER BY budget ASC LIMIT 1;
+
+#13. Genre with the highest budget overall
+
+SELECT g.genre, i.budget
+FROM genre g
+INNER JOIN IMDB i
+ON g.Movie_id = i.Movie_id
+GROUP BY genre
+HAVING genre <> ''
+ORDER BY budget DESC LIMIT 1;
